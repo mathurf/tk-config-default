@@ -1,0 +1,150 @@
+<root presetname="Shotgun Shot Export" tasktype="tk_hiero_export.sg_shot_processor.ShotgunShotProcessor">
+    <exportTemplate valuetype="list">
+        <SequenceItem valuetype="tuple">
+            <SequenceItem valuetype="str">editorial/work/hiero/nuke/{shot}.v{tk_version}.nk</SequenceItem>
+            <SequenceItem valuetype="tk_hiero_export.sg_nuke_shot_export.ShotgunNukeShotPreset">
+                <root presetname="" tasktype="tk_hiero_export.sg_nuke_shot_export.ShotgunNukeShotExporter">
+                    <includeAnnotations valuetype="bool">False</includeAnnotations>
+                    <postProcessScript valuetype="bool">True</postProcessScript>
+                    <collateSequence valuetype="bool">False</collateSequence>
+                    <enable valuetype="bool">True</enable>
+                    <additionalNodesData valuetype="list" />
+                    <toolkitWriteNodes valuetype="list">
+                        <SequenceItem valuetype="str">Toolkit Node: Stereo Exr, 32 bit (&quot;stereoexr32&quot;)</SequenceItem>
+                        <SequenceItem valuetype="str">Toolkit Node: Stereo Exr, 16 bit (&quot;stereoexr16&quot;)</SequenceItem>
+                        <SequenceItem valuetype="str">Toolkit Node: Mono Dpx (&quot;monodpx&quot;)</SequenceItem>
+                    </toolkitWriteNodes>
+                    <showAnnotations valuetype="bool">True</showAnnotations>
+                    <annotationsPreCompPaths valuetype="list" />
+                    <collateShotNames valuetype="bool">False</collateShotNames>
+                    <includeEffects valuetype="bool">True</includeEffects>
+                    <writePaths valuetype="list" />
+                    <additionalNodesEnabled valuetype="bool">False</additionalNodesEnabled>
+                    <readPaths valuetype="list" />
+                    <collateTracks valuetype="bool">False</collateTracks>
+                    <connectTracks valuetype="bool">False</connectTracks>
+                    <method valuetype="str">Blend</method>
+                    <collateCustomStart valuetype="bool">True</collateCustomStart>
+                </root>
+            </SequenceItem>
+        </SequenceItem>
+        <SequenceItem valuetype="tuple">
+            <SequenceItem valuetype="str">source/{sequence}/{shot}/ref/{shot}.####.jpg</SequenceItem>
+            <SequenceItem valuetype="tk_hiero_export.version_creator.ShotgunTranscodePreset">
+                <root presetname="tk_hiero_export.version_creator.ShotgunTranscodeExporter" tasktype="tk_hiero_export.version_creator.ShotgunTranscodeExporter">
+                    <colourspace valuetype="str">default</colourspace>
+                    <create_version valuetype="bool">True</create_version>
+                    <file_type valuetype="unicode">jpeg</file_type>
+                    <jpeg valuetype="dict" />
+                    <channels valuetype="str">rgb</channels>
+                    <keepNukeScript valuetype="bool">False</keepNukeScript>
+                    <collateCustomStart valuetype="bool">True</collateCustomStart>
+                    <burninDataEnabled valuetype="bool">False</burninDataEnabled>
+                    <collateSequence valuetype="bool">False</collateSequence>
+                    <additionalNodesEnabled valuetype="bool">False</additionalNodesEnabled>
+                    <additionalNodesData valuetype="list" />
+                    <collateShotNames valuetype="bool">False</collateShotNames>
+                    <dpx valuetype="dict">
+                        <datatype valuetype="str">10 bit</datatype>
+                    </dpx>
+                    <burninData valuetype="dict">
+                        <burnIn_bottomRight valuetype="NoneType">None</burnIn_bottomRight>
+                        <burnIn_topLeft valuetype="NoneType">None</burnIn_topLeft>
+                        <burnIn_topMiddle valuetype="NoneType">None</burnIn_topMiddle>
+                        <burnIn_padding valuetype="NoneType">None</burnIn_padding>
+                        <burnIn_topRight valuetype="NoneType">None</burnIn_topRight>
+                        <burnIn_bottomMiddle valuetype="NoneType">None</burnIn_bottomMiddle>
+                        <burnIn_bottomLeft valuetype="NoneType">None</burnIn_bottomLeft>
+                        <burnIn_textSize valuetype="NoneType">None</burnIn_textSize>
+                        <burnIn_font valuetype="NoneType">None</burnIn_font>
+                    </burninData>
+                    <writeNodeName valuetype="str">Write_{ext}</writeNodeName>
+                    <reformat valuetype="dict">
+                        <to_type valuetype="str">None</to_type>
+                    </reformat>
+                    <collateTracks valuetype="bool">False</collateTracks>
+                    <method valuetype="str">Blend</method>
+                </root>
+            </SequenceItem>
+        </SequenceItem>
+        <SequenceItem valuetype="tuple">
+            <SequenceItem valuetype="str">source/{sequence}/{shot}/plates/{shot}.####.exr</SequenceItem>
+            <SequenceItem valuetype="tk_hiero_export.version_creator.ShotgunTranscodePreset">
+                <root presetname="" tasktype="tk_hiero_export.version_creator.ShotgunTranscodeExporter">
+                    <colourspace valuetype="unicode">linear</colourspace>
+                    <create_version valuetype="bool">False</create_version>
+                    <file_type valuetype="unicode">exr</file_type>
+                    <mov valuetype="dict">
+                        <codec valuetype="str">avc1&#x09;H.264</codec>
+                        <quality valuetype="int">3</quality>
+                        <keyframerate valuetype="int">1</keyframerate>
+                        <settingsString valuetype="str">H.264, High Quality</settingsString>
+                        <encoder valuetype="str">mov32</encoder>
+                    </mov>
+                    <channels valuetype="unicode">all</channels>
+                    <collateTracks valuetype="bool">False</collateTracks>
+                    <collateCustomStart valuetype="bool">True</collateCustomStart>
+                    <burninDataEnabled valuetype="bool">False</burninDataEnabled>
+                    <collateSequence valuetype="bool">False</collateSequence>
+                    <additionalNodesEnabled valuetype="bool">False</additionalNodesEnabled>
+                    <additionalNodesData valuetype="list" />
+                    <collateShotNames valuetype="bool">False</collateShotNames>
+                    <burninData valuetype="dict">
+                        <burnIn_bottomRight valuetype="NoneType">None</burnIn_bottomRight>
+                        <burnIn_topLeft valuetype="NoneType">None</burnIn_topLeft>
+                        <burnIn_topMiddle valuetype="NoneType">None</burnIn_topMiddle>
+                        <burnIn_padding valuetype="NoneType">None</burnIn_padding>
+                        <burnIn_topRight valuetype="NoneType">None</burnIn_topRight>
+                        <burnIn_bottomMiddle valuetype="NoneType">None</burnIn_bottomMiddle>
+                        <burnIn_bottomLeft valuetype="NoneType">None</burnIn_bottomLeft>
+                        <burnIn_textSize valuetype="NoneType">None</burnIn_textSize>
+                        <burnIn_font valuetype="NoneType">None</burnIn_font>
+                    </burninData>
+                    <exr valuetype="dict" />
+                    <writeNodeName valuetype="str">Write_{ext}</writeNodeName>
+                    <reformat valuetype="dict">
+                        <to_type valuetype="str">None</to_type>
+                    </reformat>
+                    <keepNukeScript valuetype="bool">False</keepNukeScript>
+                    <method valuetype="str">Blend</method>
+                </root>
+            </SequenceItem>
+        </SequenceItem>
+    </exportTemplate>
+    <startFrameIndex valuetype="int">1</startFrameIndex>
+    <excludeTags valuetype="list" />
+    <exportRoot valuetype="str">{projectroot}</exportRoot>
+    <cutLength valuetype="bool">True</cutLength>
+    <versionIndex valuetype="int">1</versionIndex>
+    <includeRetimes valuetype="bool">False</includeRetimes>
+    <includeTags valuetype="list" />
+    <shotgunShotCreateProperties valuetype="dict">
+        <collateSequence valuetype="bool">False</collateSequence>
+        <sg_status_hiero_tags valuetype="list">
+            <SequenceItem valuetype="tuple">
+                <SequenceItem valuetype="str">In Progress</SequenceItem>
+                <SequenceItem valuetype="str">ip</SequenceItem>
+            </SequenceItem>
+            <SequenceItem valuetype="tuple">
+                <SequenceItem valuetype="str">Final</SequenceItem>
+                <SequenceItem valuetype="str">fin</SequenceItem>
+            </SequenceItem>
+            <SequenceItem valuetype="tuple">
+                <SequenceItem valuetype="str">Ready To Start</SequenceItem>
+                <SequenceItem valuetype="str">rdy</SequenceItem>
+            </SequenceItem>
+            <SequenceItem valuetype="tuple">
+                <SequenceItem valuetype="str">On Hold</SequenceItem>
+                <SequenceItem valuetype="str">hld</SequenceItem>
+            </SequenceItem>
+        </sg_status_hiero_tags>
+        <collateShotNames valuetype="bool">False</collateShotNames>
+        <task_template_map valuetype="list" />
+        <collateTracks valuetype="bool">False</collateTracks>
+        <collateCustomStart valuetype="bool">True</collateCustomStart>
+    </shotgunShotCreateProperties>
+    <cutUseHandles valuetype="bool">False</cutUseHandles>
+    <startFrameSource valuetype="str">Custom</startFrameSource>
+    <versionPadding valuetype="int">2</versionPadding>
+    <cutHandles valuetype="int">12</cutHandles>
+</root>

@@ -1,0 +1,9 @@
+# Shotgun Pipeline Toolkit configuration file
+# this file was automatically created
+
+host: https://axisfx.shotgunstudio.com
+# api_script: Toolkit
+# api_key: 9483857e610151361e574deeb09b345b2eb3dfd5
+http_proxy: null
+
+# End of file.
